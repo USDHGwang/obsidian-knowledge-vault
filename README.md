@@ -1,4 +1,4 @@
-﻿# Obsidian Knowledge Vault
+# Obsidian Knowledge Vault
 
 A personal knowledge vault for Obsidian, designed to work with AI agents
 (Claude, Hermes, others) without losing the human owner in the process.
@@ -220,11 +220,10 @@ operating guide patterns for multi-agent setups.
 
 ## Repo layout
 
+```
 obsidian-knowledge-vault/
 ├── README.md                   This file
 ├── AI_ONBOARDING_PROMPT.md     Hand to your AI for setup help
 └── examples/
-└── operating-guide.md      My actual operating guide (with notes)
-
+    └── operating-guide.md      My actual operating guide (with notes)
 ```
-
