@@ -8,7 +8,7 @@ review-checkpoint: 2026-08-19
 
 # Vault Operating Guide
 
-> **Note for readers of vault-for-agents:**
+> **Note for readers of obsidian-knowledge-vault:**
 > This is *my* operating guide as of 2026-05-19. Treat it as a structural
 > reference, not a template to copy. Sections marked `[personal context]`
 > are specific to me — you'll have your own equivalents. Sections marked
