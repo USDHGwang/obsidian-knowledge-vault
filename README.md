@@ -1,7 +1,7 @@
-# Vault for Agents
+# Obsidian Knowledge Vault
 
-A personal knowledge vault designed to work with AI agents (Claude, Hermes, others)
-without losing the human owner in the process.
+A personal knowledge vault for Obsidian, designed to work with AI agents
+(Claude, Hermes, others) without losing the human owner in the process.
 
 This repo is a setup reference, not a tutorial. See §1 before reading on.
 
