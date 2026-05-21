@@ -3,11 +3,11 @@
 A personal knowledge vault for Obsidian, designed to work with AI agents
 (Claude, Hermes, others) without losing the human owner in the process.
 
-This repo is a setup reference, not a tutorial. See 禮1 before reading on.
+This repo is a setup reference, not a tutorial. See §1 before reading on.
 
 ---
 
-## 禮1 ??This is not a tutorial
+## §1 — This is not a tutorial
 
 This document describes how I set up my vault for the AI x Web3 School cohort.
 It is not a step-by-step install guide.
@@ -34,14 +34,14 @@ This way:
 
 ---
 
-## 禮2 ??Why this exists
+## §2 — Why this exists
 
-Background: I spend a lot of time building agent infrastructure (Harness ??an
-agent framework; AIP ??an agent identity protocol deployed on 0G mainnet).
+Background: I spend a lot of time building agent infrastructure (Harness — an
+agent framework; AIP — an agent identity protocol deployed on 0G mainnet).
 
 A pattern I noticed over the past six months: when I work with AI agents
 intensively, my own thinking starts to evaporate into the conversation logs.
-Three months later I can remember roughly what I decided, but not why ??
+Three months later I can remember roughly what I decided, but not why —
 the reasoning happened in a chat that's no longer in front of me.
 
 When the AI x Web3 School cohort started, I wanted to fix this before
@@ -49,17 +49,17 @@ When the AI x Web3 School cohort started, I wanted to fix this before
 
 - Cohort content, agent conversations, and my own builder thinking should
   accumulate in one place
-- The system should be portable ??not locked to any specific AI vendor
+- The system should be portable — not locked to any specific AI vendor
 - Agents should help me organize, but not become the source of truth
   for my own reflection
 
-This repo is the result. It's not the "best practice" ??it's the design
+This repo is the result. It's not the "best practice" — it's the design
 that fits my use case. The repo exists so other people can see the
 decisions and adapt them, not copy them.
 
 ---
 
-## 禮3 ??Stack
+## §3 — Stack
 
 | Tool | Role | Why |
 |---|---|---|
@@ -74,56 +74,56 @@ tools disappear, the vault still works. Markdown files don't go away.
 
 ---
 
-## 禮4 ??Vault structure
+## §4 — Vault structure
 
 ```
 vault/
-??? sources/                  Raw inputs ??clippings, articles, papers
-??? inbox/                    AI-generated drafts buffer
-??  ??? concepts/
-??  ??? decisions/
-??  ??? questions/
-??? concepts/                 Evergreen notes (reviewed, cross-project)
-??? projects/                 Project narratives (one folder per project)
-??? meta/
-    ??? decisions/            Decision log
-    ??? reflections/          Personal reflections (see 禮5 for boundary)
-    ??? open-questions/       Unresolved questions
+├── sources/                  Raw inputs — clippings, articles, papers
+├── inbox/                    AI-generated drafts buffer
+│   ├── concepts/
+│   ├── decisions/
+│   └── questions/
+├── concepts/                 Evergreen notes (reviewed, cross-project)
+├── projects/                 Project narratives (one folder per project)
+└── meta/
+    ├── decisions/            Decision log
+    ├── reflections/          Personal reflections (see §5 for boundary)
+    └── open-questions/       Unresolved questions
 ```
 
 Two folders behave differently from the rest:
 
-- `inbox/` ??buffer for AI-generated content. Used when you (or the agent)
+- `inbox/` — buffer for AI-generated content. Used when you (or the agent)
   aren't sure where something belongs yet. Promote to `concepts/`,
   `meta/decisions/`, etc. when the content matures.
-- `meta/reflections/` ??has special access rules. See 禮5.
+- `meta/reflections/` — has special access rules. See §5.
 
 This structure is roughly a hybrid of Evergreen Notes (Matuschak) and
-PARA (Forte). It's not the only valid layout ??Karpathy's LLM Wiki pattern
+PARA (Forte). It's not the only valid layout — Karpathy's LLM Wiki pattern
 is another option, Johnny Decimal is another. The structure matters less
 than the discipline around it.
 
 ---
 
-## 禮5 ??Operating Guide (the core design)
+## §5 — Operating Guide (the core design)
 
 The vault has an operating guide that the AI agent reads before doing anything.
 Full version in `examples/operating-guide.md`. Two design decisions are worth
 explaining in detail.
 
-### 5.1 ??Reflections folder is mostly off-limits to agents
+### 5.1 — Reflections folder is mostly off-limits to agents
 
 `meta/reflections/` has three access rules:
 
-- **Never write** ??agents do not create, modify, or append files here
-- **Never read by default** ??agents do not scan or index this folder when
+- **Never write** — agents do not create, modify, or append files here
+- **Never read by default** — agents do not scan or index this folder when
   loading context for a conversation
-- **Read only when explicitly asked** ??if I say "look at my reflections about
+- **Read only when explicitly asked** — if I say "look at my reflections about
   X" or "given my reflection from June, what do you think", the agent reads
   the relevant file. Otherwise, untouched.
 
 Why this matters: when you talk to an AI agent constantly, your reasoning
-gets co-produced with the AI. That's fine for most things ??except for
+gets co-produced with the AI. That's fine for most things — except for
 the layer where you reflect on your own choices, values, and direction.
 If the agent reads and references your reflections in normal conversation,
 your own reflections start mirroring the agent's framing. After six months
@@ -132,7 +132,7 @@ of this, you can't tell what's "you" anymore.
 So reflections stay AI-untouched by default. It's a small constraint that
 costs little, but preserves something that's hard to recover once lost.
 
-### 5.2 ??Agents reference past notes as historical positions, not current facts
+### 5.2 — Agents reference past notes as historical positions, not current facts
 
 When the agent quotes vault content back to me, it should say:
 
@@ -154,7 +154,7 @@ Full guide: [`examples/operating-guide.md`](examples/operating-guide.md)
 
 ---
 
-## 禮6 ??Setup outline
+## §6 — Setup outline
 
 Not install instructions. A high-level outline of what needs to happen:
 
@@ -162,7 +162,7 @@ Not install instructions. A high-level outline of what needs to happen:
 2. Initialize a git repo (private, on GitHub or anywhere else)
 3. Install Obsidian Git plugin, configure auto commit-and-sync
 4. Write your own version of the operating guide (use
-   `examples/operating-guide.md` as starting point ??don't copy mine verbatim,
+   `examples/operating-guide.md` as starting point — don't copy mine verbatim,
    your context is different)
 5. Connect your AI agent to the vault. For filesystem-native agents (Hermes,
    Claude Code), point them at the vault directory. For chat-only agents
@@ -176,7 +176,7 @@ particular environment: hand this repo to your AI agent and follow
 
 ---
 
-## 禮7 ??Pitfalls I hit
+## §7 — Pitfalls I hit
 
 Things that wasted my time during setup, in case you hit them too:
 
@@ -204,16 +204,16 @@ Things that wasted my time during setup, in case you hit them too:
   writing decision logs because "the AI conversation already covered it".
   Three days later, I had to reconstruct one decision from chat history,
   because nothing was in the vault. The vault is only useful if you actually
-  commit decisions to it ??the operating guide and folder structure don't
+  commit decisions to it — the operating guide and folder structure don't
   enforce this, you do.
 
 ---
 
-## 禮8 ??If you want to talk
+## §8 — If you want to talk
 
-If you're setting up something similar ??or you've made different design
-choices for the same problems ??open an issue. I'm interested in how others
-handle the trade-offs in 禮5 (especially the AI-free baseline), and in
+If you're setting up something similar — or you've made different design
+choices for the same problems — open an issue. I'm interested in how others
+handle the trade-offs in §5 (especially the AI-free baseline), and in
 operating guide patterns for multi-agent setups.
 
 ---
